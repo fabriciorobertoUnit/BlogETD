@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -68,6 +69,129 @@
             🔙 Desfazer Último Post
         </button>
     </form>
+=======
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>LivingAlone</title>
+
+    <style>
+        :root {
+            --bg: #f0f3fa;
+            --card-bg: #ffffff;
+            --primary: #6a5acd;   
+            --primary-hover: #5b4ec2;
+            --danger: #e85c5c;
+            --danger-hover: #d94b4b;
+            --text-dark: #333;
+            --text-light: #666;
+            --pre-bg: #2d2d3a;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 20px;
+            background: var(--bg);
+            color: var(--text-dark);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            transition: transform 0.15s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            background: #fafafa;
+        }
+
+        button {
+            padding: 12px 18px;
+            background-color: var(--primary);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .undo-btn {
+            background-color: var(--danger);
+        }
+
+        .undo-btn:hover {
+            background-color: var(--danger-hover);
+        }
+
+        pre {
+            background: var(--pre-bg);
+            color: #eee;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 15px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+<h1>LivingAlone</h1>
+
+<div class="card">
+    <h3>Novo Post</h3>
+    <form action="/add" method="post">
+        <input type="text" name="titulo" placeholder="Título"/>
+        <textarea name="conteudo" placeholder="Conteúdo..." rows="4"></textarea>
+        <button type="submit">Adicionar</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Posts</h3>
+    <pre th:text="${posts}"></pre>
+</div>
+
+<div class="card">
+    <form action="/undo" method="post">
+        <button class="undo-btn" type="submit">Desfazer Último</button>
+    </form>
+</div>
+>>>>>>> de9d33e (Adicionei o CSS e mudei o nome do Blog para LivingAlone)
 
 </body>
 </html>
