@@ -1,24 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Blog simples</title>
+    <meta charset="UTF-8">
+    <title>Dicas para Quem Mora Sozinho</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<h1>Blog</h1>
 
-<h3>Novo Post</h3>
-<form action="/add" method="post">
-    <input type="text" name="titulo" placeholder="Título"/><br>
-    <textarea name="conteudo" placeholder="Conteúdo"></textarea><br>
-    <button type="submit">Adicionar</button>
-</form>
+<body class="bg-amber-50 min-h-screen flex flex-col items-center p-6">
 
-<h3>Posts</h3>
-<pre th:text="${posts}"></pre>
+    <!-- HEADER -->
+    <header class="text-center mb-10">
+        <h1 class="text-5xl font-extrabold text-amber-900 drop-shadow-sm">
+            🏡 Dicas Para Quem Mora Sozinho
+        </h1>
+        <p class="text-lg text-amber-700 mt-2">
+            Pequenas ideias que facilitam o dia a dia.
+        </p>
+    </header>
 
-<form action="/undo" method="post">
-    <button type="submit">Desfazer Último</button>
-</form>
+    <!-- NOVO POST -->
+    <div class="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-8 border border-amber-200">
+        <h3 class="text-3xl font-semibold text-amber-900 mb-4 flex items-center gap-2">
+            ✍️ Novo Post
+        </h3>
+
+        <form action="/add" method="post" class="space-y-4">
+            <input 
+                type="text" 
+                name="titulo" 
+                placeholder="Título do post"
+                class="w-full px-4 py-3 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+            />
+
+            <textarea 
+                name="conteudo" 
+                placeholder="Compartilhe sua dica..."
+                rows="5"
+                class="w-full px-4 py-3 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+            ></textarea>
+
+            <button 
+                type="submit" 
+                class="w-full bg-amber-600 text-white font-bold py-3 rounded-lg hover:bg-amber-700 transition"
+            >
+                Publicar Dica
+            </button>
+        </form>
+    </div>
+
+    <!-- POSTS -->
+    <div class="w-full max-w-2xl bg-white shadow-lg rounded-2xl p-8 mt-10 border border-amber-200">
+        <h3 class="text-3xl font-semibold text-amber-900 mb-4 flex items-center gap-2">
+            📚 Dicas Recentes
+        </h3>
+
+        <pre class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-amber-900 whitespace-pre-wrap leading-relaxed"
+        th:text="${posts}">
+        </pre>
+    </div>
+
+    <!-- DESFAZER -->
+    <form action="/undo" method="post" class="w-full max-w-2xl mt-5">
+        <button 
+            type="submit"
+            class="w-full bg-red-600 text-white font-semibold py-3 rounded-lg hover:bg-red-700 transition shadow"
+        >
+            🔙 Desfazer Último Post
+        </button>
+    </form>
 
 </body>
 </html>
